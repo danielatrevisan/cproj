@@ -55,10 +55,6 @@ tabela_status = pd.DataFrame({
 st.subheader("Status Atual de TEDs")
 st.dataframe(tabela_status)
 
-# Lista de TEDs no período de prestação de contas
-# Converter a coluna 'DATA FINAL PARA ENCAMINHAMENTO' para o padrão brasileiro
-df['DATA FINAL PARA ENCAMINHAMENTO'] = df['DATA FINAL PARA ENCAMINHAMENTO'].dt.strftime('%d/%m/%Y')
-
 # Filtrar TEDs no período de prestação de contas e selecionar as colunas específicas
 teds_prestacao_contas_lista = df[
     (df['FIM DA VIGÊNCIA'] < current_date) & 
