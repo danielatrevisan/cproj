@@ -66,4 +66,4 @@ teds_prestacao_contas_lista['DATA FINAL PARA ENCAMINHAMENTO'] = teds_prestacao_c
 
 # Exibir a lista no Streamlit
 st.subheader("Lista de TEDs no Período de Prestação de Contas")
-st.dataframe(teds_prestacao_contas_lista)
+st.dataframe(teds_prestacao_contas_lista, hide_index=True)
