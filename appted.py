@@ -59,7 +59,7 @@ st.dataframe(tabela_status)
 teds_prestacao_contas_lista = df[
     (df['FIM DA VIGÊNCIA'] < current_date) & 
     (df['DATA FINAL PARA ENCAMINHAMENTO'] > current_date)
-][['Seq.', 'TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
+][['TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
 
 # Exibir a lista no Streamlit
 st.subheader("Lista de TEDs no Período de Prestação de Contas")
