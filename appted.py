@@ -38,7 +38,7 @@ st.write(f"Total de TEDs Vigentes (diretamente contado): {teds_vigentes_total}")
 firmados_por_ano = df['INÍCIO DA VIGÊNCIA'].dt.year.value_counts().sort_index()
 finalizados_por_ano = df[df['FIM DA VIGÊNCIA'] < current_date]['FIM DA VIGÊNCIA'].dt.year.value_counts().sort_index()
 tabela_ano = pd.DataFrame({
-    "Ano": firmados_por_ano.index.astype(int),
+    "Ano": firmados_por_ano.index.astype(str),
     "TEDs Firmados": firmados_por_ano.values,
     "TEDs Finalizados": finalizados_por_ano.reindex(firmados_por_ano.index, fill_value=0).values
 })
