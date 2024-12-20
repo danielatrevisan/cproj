@@ -43,7 +43,7 @@ tabela_ano = pd.DataFrame({
     "TEDs Finalizados": finalizados_por_ano.reindex(firmados_por_ano.index, fill_value=0).values
 })
 st.subheader("Contagem de TEDs por Ano")
-st.dataframe(tabela_ano)
+st.dataframe(tabela_ano, hide_index=True)
 
 # Status atual de TEDs
 teds_prestacao_contas = df[(df['FIM DA VIGÊNCIA'] < current_date) & 
@@ -53,7 +53,7 @@ tabela_status = pd.DataFrame({
     "Quantidade": [teds_vigentes_total, teds_prestacao_contas]
 })
 st.subheader("Status Atual de TEDs")
-st.dataframe(tabela_status)
+st.dataframe(tabela_status, hide_index=True)
 
 # Filtrar TEDs no período de prestação de contas e selecionar as colunas específicas
 teds_prestacao_contas_lista = df[
