@@ -59,7 +59,12 @@ st.dataframe(tabela_status)
 # Converter a coluna 'DATA FINAL PARA ENCAMINHAMENTO' para o padrão brasileiro
 df['DATA FINAL PARA ENCAMINHAMENTO'] = df['DATA FINAL PARA ENCAMINHAMENTO'].dt.strftime('%d/%m/%Y')
 
-# Selecionar os campos específicos da tabela
-teds_prestacao_contas_lista = df[['TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
+# Filtrar TEDs no período de prestação de contas e selecionar as colunas específicas
+teds_prestacao_contas_lista = df[
+    (df['FIM DA VIGÊNCIA'] < current_date) & 
+    (df['DATA FINAL PARA ENCAMINHAMENTO'] > current_date)
+][['Seq.', 'TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
+
+# Exibir a lista no Streamlit
 st.subheader("Lista de TEDs no Período de Prestação de Contas")
 st.dataframe(teds_prestacao_contas_lista)
