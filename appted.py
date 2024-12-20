@@ -61,6 +61,9 @@ teds_prestacao_contas_lista = df[
     (df['DATA FINAL PARA ENCAMINHAMENTO'] > current_date)
 ][['TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
 
+# Converter a coluna 'DATA FINAL PARA ENCAMINHAMENTO' para o padrão brasileiro
+teds_prestacao_contas_lista['DATA FINAL PARA ENCAMINHAMENTO'] = teds_prestacao_contas_lista['DATA FINAL PARA ENCAMINHAMENTO'].dt.strftime('%d/%m/%Y')
+
 # Exibir a lista no Streamlit
 st.subheader("Lista de TEDs no Período de Prestação de Contas")
 st.dataframe(teds_prestacao_contas_lista)
