@@ -56,7 +56,6 @@ st.subheader("Status Atual de TEDs")
 st.dataframe(tabela_status)
 
 # Lista de TEDs no período de prestação de contas
-teds_prestacao_contas_lista = df[(df['FIM DA VIGÊNCIA'] < current_date) & 
-                                 (df['DATA FINAL PARA ENCAMINHAMENTO'] > current_date)][['Seq.', 'TED/ANO']]
+teds_prestacao_contas_lista = df[(df['DATA FINAL PARA ENCAMINHAMENTO'] > current_date)][['TED/ANO', 'DATA FINAL PARA ENCAMINHAMENTO', 'TÍTULO/OBJETO']]
 st.subheader("Lista de TEDs no Período de Prestação de Contas")
 st.dataframe(teds_prestacao_contas_lista)
