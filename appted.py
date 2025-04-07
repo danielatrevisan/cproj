@@ -65,5 +65,5 @@ teds_prestacao_contas_lista = df[
 teds_prestacao_contas_lista['DATA FINAL PARA ENCAMINHAMENTO'] = teds_prestacao_contas_lista['DATA FINAL PARA ENCAMINHAMENTO'].dt.strftime('%d/%m/%Y')
 
 # Exibir a lista no Streamlit
-st.subheader("Lista de TEDs no Período de Prestação de Contas")
+st.subheader("TEDs no Período de Prestação de Contas")
 st.dataframe(teds_prestacao_contas_lista, hide_index=True)
