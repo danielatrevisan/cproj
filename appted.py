@@ -7,7 +7,7 @@ file_id = "1KLmqRbECQwOUvOpU3v60PKWQsfVrpmau5yDKcVkOXMw"
 url = f"https://docs.google.com/spreadsheets/d/{file_id}/export?format=csv&gid=0"
 
 # Título do aplicativo
-st.title("Análise de TEDs")
+st.title("Acompanhamento de TEDs UFT")
 
 # Carregar e processar os dados
 df = pd.read_csv(url, header=2, nrows=86)
@@ -31,8 +31,8 @@ teds_vigentes_calculado = teds_firmados_total - teds_finalizados_total
 st.subheader("Resumo das Contagens")
 st.write(f"Total de TEDs Firmados: {teds_firmados_total}")
 st.write(f"Total de TEDs Finalizados: {teds_finalizados_total}")
-st.write(f"Total de TEDs Vigentes (calculado): {teds_vigentes_calculado}")
-st.write(f"Total de TEDs Vigentes (diretamente contado): {teds_vigentes_total}")
+st.write(f"Total de TEDs Vigentes: {teds_vigentes_calculado}")
+# st.write(f"Total de TEDs Vigentes (diretamente contado): {teds_vigentes_total}")
 
 # Contagem de TEDs por ano
 firmados_por_ano = df['INÍCIO DA VIGÊNCIA'].dt.year.value_counts().sort_index()
