@@ -42,7 +42,7 @@ tabela_ano = pd.DataFrame({
     "TEDs Firmados": firmados_por_ano.values,
     "TEDs Finalizados": finalizados_por_ano.reindex(firmados_por_ano.index, fill_value=0).values
 })
-st.subheader("Contagem de TEDs por Ano")
+st.subheader("TEDs por Ano")
 st.dataframe(tabela_ano, hide_index=True)
 
 # Status atual de TEDs
